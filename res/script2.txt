@@ -1,0 +1,34 @@
+read gumball.jpeg # these first eight lines should be errors because layers have not been added yet.
+write dog.ppm 
+checkerboard 
+blur 
+sepia
+bw
+sharpen
+sharpen
+add testOne # these four lines add 4 layers
+add testTwo
+add testThree
+add testFour
+current testOne # set the current to layer one
+current bomb # set the current to a layer that doesn't exist, which shouldn't work
+blur # blur the current (layer one)
+current testTwo # set the current to layer two
+sharpen # sharpen the current
+current testThree # set the current to layer three
+sepia # apply sepia filter on the current
+current testFour # set the current to layer four
+bw # apply grayscale on the current
+current testTwo # set the current to layer two
+invisible testTwo # set layer two to invisible
+visible grass # set the grass layer to visible, which shouldn't work (grass doesn't exist)
+visible testTwo # set layer two back to visible
+visible testThree # set layer three to visible (even though it already is visible)
+remove testThree # remove layer three
+checkerboard # set layer two to checkerboard
+write daniel.png # write layer four to a png
+remove testFour # remove layer four
+write daniel1.ppm # write layer two to a ppm
+write daniel2.jpeg # write layer two to a jpeg
+remove daniel # removes layer daniel, which should not work because it doesn't exist
+quit # allows for quitting

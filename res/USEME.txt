@@ -1,0 +1,36 @@
+read <file/folder name>.<ext>
+- used to read images with extension jpeg, ppm or png; use extension layer to read layered image folder
+- can only read in images once current layer has been created and set
+  
+write <file/folder name>.<ext>
+- used to write topmost visable image to some destination (support writing to jpeg, ppm or png)
+- used to write layered image to some destination (extension must be .layer)
+- cannot write image until current layer has been created and set
+
+checkerboard
+- works the same way as reading images command except no argument must be supplied; checkerboard is used 
+in place of image at some file location
+
+blur / sepia / sharpen / bw
+- applies specified image processor to current image
+- cannot use until current layer has been created and set
+
+add <layer name>
+- adds a new layer with given name
+- once added, layer's visibility is true, image is a default checkerboard and index corresponds to one more 
+than the last layer
+
+remove <layer name>
+- removes layer with given layer name
+- cannot remove until layer with name has been created
+
+current <layer name>
+- sets current layer to layer with given name
+- cannot be called until layer with given layer name has been added 
+
+invisible / visible <layer name>
+- sets visibility of layer with given name
+- cannot use until layer with given name has been added
+
+q / quit
+- to quit application

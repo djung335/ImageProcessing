@@ -1,0 +1,39 @@
+read dylan.jpeg # reading an image before setting current layer; error
+write bleh.jpeg # writing before setting current layer error;
+checkerboard # creating checkerboard before setting current layer; error
+blur # applying image processing before setting current layer; error
+sepia
+sharpen
+bw
+remove nonexistent # removing nonexistent layer; error
+add first
+add second
+current second
+read res/script1inputs/dylan.png # reading in png image to current layer
+blur # applying blur to current image (image at second)
+add third
+current third
+read res/script1inputs/dylan.ppm # reading in ppm image to current layer
+sepia # applying sepia to current image (image at third)
+add fourth 
+current fourth 
+read res/script1inputs/dylan.jpeg # reading in jpeg image to current layer
+sharpen # applying sharpen to current image (image at fourth)
+add fifth 
+current fifth
+checkerboard
+bw # applying grayscale to current image (image at fifth)
+add sixth 
+remove sixth # removing a layer
+write fifthLayerImage.jpeg # exporting topmost visible image in different formats
+write fifthLayerImage.ppm
+write fifthLayerImage.png
+invisible fifth
+visible fifth # toggling visibility back and forth
+invisible fifth
+invisible fourth 
+write thirdLayerIamge.jpeg # top two layers are invisible so third image is written
+write dylan2.layers
+read res/script1inputs/dylan.layers
+current first # will not throw an error
+q
